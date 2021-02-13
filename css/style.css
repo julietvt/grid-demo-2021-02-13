@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  display: grid;
+  /* ASCII-графика*/
+  grid-template-areas:
+    'header header header'
+    'nav main aside'
+    'nav footer aside';
+}
+
+/* сетка 3ст*4стр */
+.container {
+  display: grid;
+  background-color: burlywood;
+  /* разбивка по строкам */
+  /* grid-template-rows: repeat(30%, 3);*/
+  /* разбивка по столбцам */
+  /*grid-template-columns: 30% 30% 30%; */
+  /* сокращенная запись */
+  grid-template: 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr;
+
+  /* куда добавлять ячейки в неявной сетке*/
+  grid-auto-flow: column;
+  /* высота строк в неявной сетке */
+  /*grid-auto-rows: 200px; */
+  /* ширина строк в неявной сетке */
+  /*grid-auto-columns: 200px; */
+
+  grid-area: main;
+}
+
+header {
+  background-color: blue;
+  grid-area: header;
+}
+
+nav {
+  background-color: coral;
+  grid-area: nav;
+}
+
+aside {
+  background-color: aqua;
+  grid-area: aside;
+}
+
+footer {
+  background-color: brown;
+  grid-area: footer;
+}
+.gridItem {
+  background-color: blueviolet;
+  margin: 5px;
+}
+
+/* #style1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+} */
