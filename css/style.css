@@ -2,10 +2,22 @@ body {
   margin: 0;
   display: grid;
   /* ASCII-графика*/
-  grid-template-areas:
+  grid-template-areas: /*grid-area*/
     'header header header'
-    'nav main aside'
-    'nav footer aside';
+    'nav    main   aside'
+    'nav    footer aside';
+}
+
+@media all and (max-width: 575px) {
+  body {
+    grid-template: 100px 2fr 1fr 100px 100px;
+    grid-template-areas:
+      'header'
+      'main'
+      'nav'
+      'aside'
+      'footer';
+  }
 }
 
 /* сетка 3ст*4стр */
@@ -13,19 +25,26 @@ body {
   display: grid;
   background-color: burlywood;
   /* разбивка по строкам */
-  /* grid-template-rows: repeat(30%, 3);*/
+  /* grid-template-rows: repeat(3, 30%);*/
   /* разбивка по столбцам */
   /*grid-template-columns: 30% 30% 30%; */
   /* сокращенная запись */
-  grid-template: 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr;
+  /* grid-template: 200px 200px 200px / 200px 200px 200px; */
 
   /* куда добавлять ячейки в неявной сетке*/
-  grid-auto-flow: column;
+  /* grid-auto-flow: column; */
+  /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
   /* высота строк в неявной сетке */
   /*grid-auto-rows: 200px; */
   /* ширина строк в неявной сетке */
   /*grid-auto-columns: 200px; */
-
+  /* куда добавлять элементы, если она не помещаются с основную сетку/
+  / dense - помещать элементы на свободные места*/
+  /* grid-auto-flow: dense;
+  justify-items: end;
+  align-items: center;
+  justify-content: space-around;
+  align-content: start; */
   grid-area: main;
 }
 
@@ -51,9 +70,32 @@ footer {
 .gridItem {
   background-color: blueviolet;
   margin: 5px;
+  width: 100px;
+  height: 100px;
 }
 
-/* #style1 {
-  grid-row-start: 1;
+#style1 {
+  /* grid-row-start: 1;
   grid-row-end: 3;
-} */
+  grid-row: 1 / 3;
+
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-column: 1 / 3;
+  align-self: ;
+  justify-self: ;
+  order:;
+  z-index:; */
+  background-color: azure;
+}
+
+#style1:hover {
+  transition: background-color 1s cubic-bezier(0.6, 0.04, 0.98, 0.335) 1s,
+    height 2s;
+  background-color: brown;
+}
+/* поменять размер 2с через 3с
+цвет с желтого на синий 5с
+границы  
+использовать функции
+*/
